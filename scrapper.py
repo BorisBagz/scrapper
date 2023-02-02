@@ -1,4 +1,4 @@
-from urllib.request import
+from urllib.request import urlopen
 
 url = "https://www.pricesmart.com/site/pa/es/pagina-producto/956696"
 
