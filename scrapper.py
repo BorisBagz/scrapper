@@ -10,3 +10,5 @@ page = requests.get(URL, verify=False)
 soup = BeautifulSoup(page.content, "html.parser")
 
 results = soup.find(id="inventory-id")
+
+print(results)
