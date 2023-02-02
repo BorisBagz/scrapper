@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import urllib.request
+import urllib
 
 with urllib.request.urlopen('https://www.pricesmart.com/site/pa/es/pagina-producto/956696') as response:
    html = response.read()
