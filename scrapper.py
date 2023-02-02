@@ -1,11 +1,5 @@
-from urllib import urlopen
-
-url = "https://www.pricesmart.com/site/pa/es/pagina-producto/956696"
-
-page = urlopen(url)
-
-html_bytes = page.read()
-
-html = html_bytes.decode("utf-8")
-
-print(html)
+import urllib.request
+with urllib.request.urlopen('https://www.pricesmart.com/site/pa/es/pagina-producto/956696') as response:
+   html = response.read()
+   html_decoded = html.decode("utf-8")
+   print(html_decoded)
