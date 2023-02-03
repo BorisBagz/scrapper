@@ -22,18 +22,18 @@ SMSToSend = "\nExisten {} unidades de {} en la sucursal de {}".format(quantityOn
 
 print(SMSToSend)
 
-#client = vonage.Client(key="0d18ddf8", secret="vVKVcDa16abWlBWg")
-#sms = vonage.Sms(client)
+client = vonage.Client(key="0d18ddf8", secret="vVKVcDa16abWlBWg")
+sms = vonage.Sms(client)
 
-#responseData = sms.send_message(
-#    {
-#        "from": "BAGZ Scrappers",
-#        "to": "50763239627",
-#        "text": SMSToSend,
-#    }
-#)
+responseData = sms.send_message(
+    {
+        "from": "BAGZ Scrappers",
+        "to": "50763239627",
+        "text": SMSToSend,
+    }
+)
 
-#if responseData["messages"][0]["status"] == "0":
-#    print("Message sent successfully.")
+if responseData["messages"][0]["status"] == "0":
+    print("Message sent successfully.")
 #else:
 #    print(f"Message failed with error: {responseData['messages'][0]['error-text']}")
