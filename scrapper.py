@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import requests
 from bs4 import BeautifulSoup
+import vonage
 
 #loading the desired product web page
 URL = "https://www.pricesmart.com/site/pa/es/pagina-producto/956696"
