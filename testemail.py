@@ -1,12 +1,13 @@
-#!/usr/bin/python
+# importing yagmail and its packages
 import yagmail
 
-receiver = "borisbagz@gmail.com"
-body = "Hello there"
+senderEmail = "bagzscrapper@gmail.com"
+senderPwd = "borisscrapper"
+receiverEmail = "borisbagz@gmail.com"
 
-yag = yagmail.SMTP("borisbagz@gmail.com")
-yag.send(
-    to=receiver,
-    subject="TEST TEST TEST",
-    contents=body,
-)
+# initiating connection with SMTP server
+yag = yagmail.SMTP(senderEmail,senderPwd)
+# Adding Content and sending it
+yag.send(receiverEmail,
+         "TEST",
+         "this is a test")
