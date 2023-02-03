@@ -5,6 +5,10 @@ import re
 import os
 from datetime import date
 from datetime import datetime
+from urllib3.exceptions import InsecureRequestWarning
+
+# Suppress only the single warning from urllib3 needed.
+requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 #loading the desired product web page
 URL = "https://www.pricesmart.com/site/pa/es/pagina-producto/956696"
