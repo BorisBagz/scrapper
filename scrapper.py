@@ -13,4 +13,4 @@ results = soup.find(id="clubQuantity")
 
 quantity = results.find("span", class_="d-none")
 
-print(quantity)
+print(quantity.text)
