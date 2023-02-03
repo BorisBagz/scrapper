@@ -2,6 +2,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+import os
 
 #loading the desired product web page
 URL = "https://www.pricesmart.com/site/pa/es/pagina-producto/956696"
@@ -25,3 +26,6 @@ emailContent = re.sub('\s+',' ', formattedString)
 file = open("EMAIL.txt", "w")
 file.write(emailContent)
 file.close()
+
+
+os.system("ls")
