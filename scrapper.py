@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import requests
 from bs4 import BeautifulSoup
-import vonage
+import re
 
 #loading the desired product web page
 URL = "https://www.pricesmart.com/site/pa/es/pagina-producto/956696"
@@ -18,8 +18,10 @@ quantityOnStock = soup.find(id="clubQuantity").text
 clubName = soup.find(id="club-name-description").text
 
 #formatting the output
-SMSToSend = "\nExisten {} unidades de {} en la sucursal de {}".format(quantityOnStock,productName,clubName)
+formattedString = "\nExisten {} unidades de {} en la sucursal de {}".format(quantityOnStock,productName,clubName)
+
+emailContent = re.sub(r"[\n\t\s]*", "", formattedString)
 
 file = open("EMAIL.txt", "w")
-file.write(SMSToSend)
+file.write(emailContent)
 file.close()
