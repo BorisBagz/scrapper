@@ -29,6 +29,4 @@ file.close()
 
 commandToExecute = "echo \"$(<EMAIL.txt )\" | mailx -s \"this is a test\" bagzscrapper@altmails.com"
 
-print(commandToExecute)
-
-#os.system()
+os.system()
