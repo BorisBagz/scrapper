@@ -32,6 +32,6 @@ today = date.today()
 
 commandToExecute = "mailx -s \"Tracking - Pads Wolfy en PriceSmart - {}\" bagzscrapper@altmails.com < EMAIL.txt".format(today)
 
-#os.system(commandToExecute)
+os.system(commandToExecute)
 
-print(commandToExecute)
+#print(commandToExecute)
