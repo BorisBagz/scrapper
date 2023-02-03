@@ -27,4 +27,8 @@ file = open("EMAIL.txt", "w")
 file.write(emailContent)
 file.close()
 
-os.system("echo "$(<EMAIL.txt )" | mailx -s "this is a test" bagzscrapper@altmails.com")
+commandToExecute = "echo \"$(<EMAIL.txt )\" | mailx -s \"this is a test\" bagzscrapper@altmails.com"
+
+print(commandToExecute)
+
+#os.system()
