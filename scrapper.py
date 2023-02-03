@@ -18,3 +18,20 @@ clubName = soup.find(id="club-name-description").text
 
 #formatting the output
 print("\nExisten {} unidades de {} en la sucursal de {}".format(quantityOnStock,productName,clubName))
+
+
+client = vonage.Client(key="0d18ddf8", secret="vVKVcDa16abWlBWg")
+sms = vonage.Sms(client)
+
+responseData = sms.send_message(
+    {
+        "from": "Vonage APIs",
+        "to": "50763239627",
+        "text": "A text message sent using the Nexmo SMS API",
+    }
+)
+
+if responseData["messages"][0]["status"] == "0":
+    print("Message sent successfully.")
+else:
+    print(f"Message failed with error: {responseData['messages'][0]['error-text']}")
