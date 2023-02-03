@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import os
+from datetime import date
 
 #loading the desired product web page
 URL = "https://www.pricesmart.com/site/pa/es/pagina-producto/956696"
@@ -27,6 +28,10 @@ file = open("EMAIL.txt", "w")
 file.write(emailContent)
 file.close()
 
-commandToExecute = "echo \"$(<EMAIL.txt )\" | mailx -s \"this is a test\" bagzscrapper@altmails.com"
+today = date.today()
 
-os.system(commandToExecute)
+commandToExecute = "mailx -s \"Tracking - Pads Wolfy en PriceSmart - {}\" bagzscrapper@altmails.com < EMAIL.txt".format(today)
+
+#os.system(commandToExecute)
+
+print(commandToExecute)
