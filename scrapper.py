@@ -11,6 +11,7 @@ soup = BeautifulSoup(page.content, "html.parser")
 
 results = soup.find(id="clubQuantity")
 
+splitted = results.split(">")
 #quantity = results.find("span", class_="d-none")
 
-print(results)
+print(splitted[0])
