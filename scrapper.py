@@ -7,7 +7,7 @@ from datetime import date
 from datetime import datetime
 from urllib3.exceptions import InsecureRequestWarning
 
-# Suppress only the single warning from urllib3 needed.
+# Suppress only the certificate warning from url request
 requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
 #loading the desired product web page
