@@ -11,4 +11,6 @@ soup = BeautifulSoup(page.content, "html.parser")
 
 results = soup.find(id="clubQuantity")
 
-print(results)
+quantity = results.find("span", class_="d-none")
+
+print(quantity)
