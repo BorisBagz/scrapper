@@ -20,7 +20,7 @@ clubName = soup.find(id="club-name-description").text
 #formatting the output
 formattedString = "\nExisten {} unidades de {} en la sucursal de {}".format(quantityOnStock,productName,clubName)
 
-emailContent = re.sub(r"[\n\t\s]*", "", formattedString)
+emailContent = re.sub('\s+',' ', formattedString)
 
 file = open("EMAIL.txt", "w")
 file.write(emailContent)
