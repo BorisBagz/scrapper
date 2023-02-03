@@ -18,17 +18,16 @@ quantityOnStock = soup.find(id="clubQuantity").text
 clubName = soup.find(id="club-name-description").text
 
 #formatting the output
-print("\nExisten {} unidades de {} en la sucursal de {}".format(quantityOnStock,productName,clubName))
-
+SMSToSend = "\nExisten {} unidades de {} en la sucursal de {}".format(quantityOnStock,productName,clubName)
 
 client = vonage.Client(key="0d18ddf8", secret="vVKVcDa16abWlBWg")
 sms = vonage.Sms(client)
 
 responseData = sms.send_message(
     {
-        "from": "Vonage APIs",
+        "from": "BAGZ Scrappers",
         "to": "50763239627",
-        "text": "A text message sent using the Nexmo SMS API",
+        "text": SMSToSend,
     }
 )
 
