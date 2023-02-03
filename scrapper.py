@@ -9,6 +9,6 @@ page = requests.get(URL, verify=False)
 
 soup = BeautifulSoup(page.content, "html.parser")
 
-results = soup.find(id="inventory-id")
+results = soup.find(id="clubQuantity")
 
 print(results)
