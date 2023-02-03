@@ -27,5 +27,4 @@ file = open("EMAIL.txt", "w")
 file.write(emailContent)
 file.close()
 
-
-os.system("ls")
+os.system("echo "$(<EMAIL.txt )" | mailx -s "this is a test" bagzscrapper@altmails.com")
