@@ -20,18 +20,20 @@ clubName = soup.find(id="club-name-description").text
 #formatting the output
 SMSToSend = "\nExisten {} unidades de {} en la sucursal de {}".format(quantityOnStock,productName,clubName)
 
-client = vonage.Client(key="0d18ddf8", secret="vVKVcDa16abWlBWg")
-sms = vonage.Sms(client)
+print(SMSToSend)
 
-responseData = sms.send_message(
-    {
-        "from": "BAGZ Scrappers",
-        "to": "50763239627",
-        "text": SMSToSend,
-    }
-)
+#client = vonage.Client(key="0d18ddf8", secret="vVKVcDa16abWlBWg")
+#sms = vonage.Sms(client)
 
-if responseData["messages"][0]["status"] == "0":
-    print("Message sent successfully.")
+#responseData = sms.send_message(
+#    {
+#        "from": "BAGZ Scrappers",
+#        "to": "50763239627",
+#        "text": SMSToSend,
+#    }
+#)
+
+#if responseData["messages"][0]["status"] == "0":
+#    print("Message sent successfully.")
 #else:
 #    print(f"Message failed with error: {responseData['messages'][0]['error-text']}")
