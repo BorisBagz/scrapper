@@ -9,9 +9,8 @@ page = requests.get(URL, verify=False)
 
 soup = BeautifulSoup(page.content, "html.parser")
 
-results = soup.find(id="clubQuantity").text
+productName = soup.find(id="product-display-name").text
+quantityOnStock = soup.find(id="clubQuantity").text
+clubName = soup.find(id="club-name-description").text
 
-#splitted = results.split(">")
-#quantity = results.find("span", class_="d-none")
-
-print(results)
+print("\nExisten {} unidades de {} en la sucursal de {}".format(quantityOnStock,productName,clubName))
