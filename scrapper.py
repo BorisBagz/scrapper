@@ -9,9 +9,9 @@ page = requests.get(URL, verify=False)
 
 soup = BeautifulSoup(page.content, "html.parser")
 
-results = soup.find(id="clubQuantity")
+results = soup.find(id="clubQuantity").text
 
-splitted = results.split(">")
+#splitted = results.split(">")
 #quantity = results.find("span", class_="d-none")
 
-print(splitted[0])
+print(results)
