@@ -25,7 +25,7 @@ productName = soup.find(id="product-display-name").text
 quantityOnStock = soup.find(id="clubQuantity").text
 clubName = soup.find(id="club-name-description").text
 
-if quantityOnStock == 1 :
+if quantityOnStock != 0 :
     #formatting the output
     formattedString = "\nExisten <b>{}</b> unidades de <b>{}</b> en la sucursal de <b>{}</b>".format(quantityOnStock,productName,clubName)
 
