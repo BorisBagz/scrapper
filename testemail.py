@@ -25,7 +25,12 @@ productName = soup.find(id="product-display-name").text
 quantityOnStock = soup.find(id="clubQuantity").text
 clubName = soup.find(id="club-name-description").text
 clubID = soup.find_all("p", class_="text-left m-0 p-0 pl-2")
-print("Primera sucursal: \n {}".format(clubID[0]))
+
+mysopa = BeautifulSoup(clubID, "html.parser")
+nombre = mysopa.find_all('span', class_="product-container-inner")
+
+
+print("Primera sucursal: \n {}".format(nombre.text))
 
 """
 if quantityOnStock != 0 :
