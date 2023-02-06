@@ -24,7 +24,7 @@ soup = BeautifulSoup(page.content, "html.parser")
 productName = soup.find(id="product-display-name").text
 quantityOnStock = soup.find(id="clubQuantity").text
 clubName = soup.find(id="club-name-description").text
-clubID = soup.find_all("span", class_="product-container-inner")
+clubID = soup.find_all("p", class_="text-left m-0 p-0 pl-2")
 print(clubID)
 
 """
