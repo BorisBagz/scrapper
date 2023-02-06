@@ -26,7 +26,7 @@ quantityOnStock = soup.find(id="clubQuantity").text
 clubName = soup.find(id="club-name-description").text
 clubID = soup.find_all("p", class_="text-left m-0 p-0 pl-2")
 
-mysopa = BeautifulSoup(clubID, "html.parser")
+mysopa = BeautifulSoup(clubID)
 nombre = mysopa.find_all('span', class_="product-container-inner")
 
 
