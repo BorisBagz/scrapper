@@ -1,11 +1,53 @@
-# importing yagmail and its packages
-import yagmail
+#!/usr/bin/python
+import requests
+from bs4 import BeautifulSoup
+import re
+import os
+from datetime import date
+from datetime import datetime
+from urllib3.exceptions import InsecureRequestWarning
 
-senderEmail = "bagzscrapper@gmail.com"
-senderPwd = "borisscrapper"
-receiverEmail = "borisbagz@gmail.com"
+# Suppress only the certificate warning from url request
+requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 
-# initiating connection with SMTP server
-yag = yagmail.SMTP(senderEmail,senderPwd)
-# Adding Content and sending it
-yag.send(receiverEmail,"TEST","this is a test")
+#loading the desired product web page
+#URL = "https://www.pricesmart.com/site/pa/es/pagina-producto/956696"
+URL = "https://www.pricesmart.com/site/pa/es/pagina-producto/4057"
+
+#fetching the html code of the page
+page = requests.get(URL, verify=False)
+
+#parsing it for BeautifulSoup
+soup = BeautifulSoup(page.content, "html.parser")
+
+#extracting the values of desired parameters
+productName = soup.find(id="product-display-name").text
+quantityOnStock = soup.find(id="clubQuantity").text
+clubName = soup.find(id="club-name-description").text
+clubID = soup.find_all("span", class_="product-container-inner")
+print(clubID)
+
+"""
+if quantityOnStock != 0 :
+    #formatting the output
+    formattedString = "\nExisten <b>{}</b> unidades de <b>{}</b> en la sucursal de <b>{}</b>".format(quantityOnStock,productName,clubName)
+
+    #remove tabulations and newlines
+    emailContent = re.sub('\s+',' ', formattedString)
+
+    #opening and writing into txt file
+    file = open("EMAIL.txt", "w")
+    file.write(emailContent)
+    file.close()
+
+    #getting todays date and time for format
+    today = date.today()
+    currentDateAndTime = datetime.now()
+    myTime = currentDateAndTime.strftime("%H:%M")
+
+    #concatenating the final command to execute
+    commandToExecute = "mailx -s \"Tracking - Pads Wolfy en PriceSmart - {} - {}\" bagzscrapper-main@altmails.com < EMAIL.txt".format(today, myTime)
+
+    #launching the command and sending the email
+    os.system(commandToExecute)
+"""

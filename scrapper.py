@@ -44,6 +44,6 @@ if quantityOnStock != 0 :
 
     #concatenating the final command to execute
     commandToExecute = "mailx -s \"Tracking - Pads Wolfy en PriceSmart - {} - {}\" bagzscrapper-main@altmails.com < EMAIL.txt".format(today, myTime)
-
+    
     #launching the command and sending the email
     os.system(commandToExecute)
