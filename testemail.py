@@ -25,7 +25,7 @@ productName = soup.find(id="product-display-name").text
 quantityOnStock = soup.find(id="clubQuantity").text
 clubName = soup.find(id="club-name-description").text
 clubID = soup.find_all("p", class_="text-left m-0 p-0 pl-2")
-print(clubID)
+print("Primera sucursal: \n {}".format(clubID[0]))
 
 """
 if quantityOnStock != 0 :
