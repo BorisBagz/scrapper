@@ -23,9 +23,10 @@ soup = BeautifulSoup(page.content, "html.parser")
 productName = soup.find(id="product-display-name").text
 quantityOnStock = soup.find(id="clubQuantity").text
 clubName = soup.find(id="club-name-description").text
+price = soup.find(id="product-price").text
 
 #formatting the output
-formattedString = "\nExisten <b>{}</b> unidades de <b>{}</b> en la sucursal de <b>{}</b>.\n Puedes revisar el enlace acá: {} ".format(quantityOnStock,productName,clubName,URL)
+formattedString = "\nExisten <b>{}</b> unidades de <b>{}</b> en la sucursal de <b>{}</b>.\n\nAhora cuestan <b>{}</b>. \n\n Puedes revisar el enlace acá: {} ".format(quantityOnStock,productName,clubName,price,URL)
 
 #remove tabulations and newlines
 emailContent = re.sub('\s+',' ', formattedString)
