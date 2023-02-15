@@ -25,7 +25,7 @@ quantityOnStock = soup.find(id="clubQuantity").text
 clubName = soup.find(id="club-name-description").text
 
 #formatting the output
-formattedString = "\nExisten <b>{}</b> unidades de <b>{}</b> en la sucursal de <b>{}</b>".format(quantityOnStock,productName,clubName)
+formattedString = "\nExisten <b>{}</b> unidades de <b>{}</b> en la sucursal de <b>{}</b>.\n Puedes revisar el enlace acá: {} ".format(quantityOnStock,productName,clubName,URL)
 
 #remove tabulations and newlines
 emailContent = re.sub('\s+',' ', formattedString)
